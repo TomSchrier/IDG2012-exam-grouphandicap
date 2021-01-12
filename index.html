@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/illustrations/favicon.svg" />
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://use.typekit.net/zbq7fit.css">
+    <title>7-minute Workout</title>
+</head>
+
+<body onload="uncheckAll()">
+
+    <header>
+        <h1><span id="minute">7-minute</span>
+            <span id="workout">workout</span></h1>
+        <h2>*Rest for 5 seconds between each exercise</h2>
+        <h3>Workout Duration: <span id="workoutTime" aria-live="polite"></span></h3>
+    </header>
+    <main>
+        <div id="menu">
+        
+
+
+            <!-- SEE ALL EXERCISES-->
+            <button class="designButtons" id="seeExercises" onclick="location.href='all-exercises.html'">See All
+                Exercises</button>
+
+
+
+                <h2>Choose which body parts or activities to exclude</h2>
+
+            <!--CHECKBOXES FOR THE EXERCISES SO THE USER CAN CHOOSE EXERCISES-->
+            <div class=checkboxes aria-live="polite">
+                <!--CHECKBOXES FOR CERTAIN BODY PARTS-->
+                <fieldset>
+                    <legend>Exclude certain body parts</legend>
+                    <div>
+                        <input id="exclude-arms" type="checkbox" onclick="hideThisBodyPart('arms')">
+                        <label for="exclude-arms">Exclude arms</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-legs" type="checkbox" onclick="hideThisBodyPart('legs')">
+                        <label for="exclude-legs">Exclude legs</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-jumping" type="checkbox" onclick="hideThisBodyPart('jumping')">
+                        <label for="exclude-jumping">Exclude jumping</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-abs" type="checkbox" onclick="hideThisBodyPart('abs')">
+                        <label for="exclude-abs">Exclude abs</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-quadriceps" type="checkbox" onclick="hideThisBodyPart('quadriceps')">
+                        <label for="exclude-quadriceps">Exclude quadriceps</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-glutes" type="checkbox" onclick="hideThisBodyPart('glutes')">
+                        <label for="exclude-glutes">Exclude glutes</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-calves" type="checkbox" onclick="hideThisBodyPart('calves')">
+                        <label for="exclude-calves">Exclude calves</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-chest" type="checkbox" onclick="hideThisBodyPart('chest')">
+                        <label for="exclude-chest">Exclude chest</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-shoulders" type="checkbox" onclick="hideThisBodyPart('shoulders')">
+                        <label for="exclude-shoulders">Exclude shoulders</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-butt" type="checkbox" onclick="hideThisBodyPart('butt')">
+                        <label for="exclude-butt">Exclude butt</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-triceps" type="checkbox" onclick="hideThisBodyPart('triceps')">
+                        <label for="exclude-triceps">Exclude triceps</label>
+                    </div>
+
+                    <div>
+                        <input id="exclude-back" type="checkbox" onclick="hideThisBodyPart('back')">
+                        <label for="exclude-back">Exclude back</label>
+                    </div>
+                </fieldset>
+                <h2>Choose which exercises to include</h2>
+                 
+                <fieldset>
+                    <legend>Include certain exercises</legend>
+                    <div>
+                        <input id="include-jumping-jacks" class="jumping legs" type="checkbox"
+                            onclick="includeExercise('jumping-jacks')">
+                        <label for="include-jumping-jacks">Include jumping jacks</label>
+                    </div>
+
+                    <div>
+                        <input id="include-wall-sit" class="quadriceps glutes calves" type="checkbox"
+                            onclick="includeExercise('wall-sit')">
+                        <label for="include-wall-sit">Include wall sit</label>
+                    </div>
+
+                    <div>
+                        <input id="include-push-ups" class="arms chest shoulders" type="checkbox"
+                            onclick="includeExercise('push-ups')">
+                        <label for="include-push-ups">Include push-ups</label>
+                    </div>
+
+                    <div>
+                        <input id="include-crunch" class="abs" type="checkbox" onclick="includeExercise('crunch')">
+                        <label for="include-crunch">Include crunch</label>
+                    </div>
+
+                    <div>
+                        <input id="include-step-up" class="butt hips legs thighs" type="checkbox"
+                            onclick="includeExercise('step-up')">
+                        <label for="include-step-up">Include step-up</label>
+                    </div>
+
+                    <div>
+                        <input id="include-squat" class="butt hips legs thighs" type="checkbox"
+                            onclick="includeExercise('squat')">
+                        <label for="include-squat">Include squat</label>
+                    </div>
+
+                    <div>
+                        <input id="include-triceps-dip" class="triceps" type="checkbox"
+                            onclick="includeExercise('triceps-dip')">
+                        <label for="include-triceps-dip">Include triceps dip</label>
+                    </div>
+
+                    <div>
+                        <input id="include-plank" class="abs back" type="checkbox" onclick="includeExercise('plank')">
+                        <label for="include-plank">Include plank</label>
+                    </div>
+
+                    <div>
+                        <input id="include-running" class="legs" type="checkbox" onclick="includeExercise('running')">
+                        <label for="include-running">Include running</label>
+                    </div>
+
+                    <div>
+                        <input id="include-lunge" class="abs butt hips legs thighs" type="checkbox"
+                            onclick="includeExercise('lunge')">
+                        <label for="include-lunge">Include lunge</label>
+                    </div>
+
+                    <div>
+                        <input id="include-push-up-rotate" class="arms chest abs shoulders" type="checkbox"
+                            onclick="includeExercise('push-up-rotate')">
+                        <label for="include-push-up-rotate">Include push up and rotate</label>
+                    </div>
+
+                    <div>
+                        <input id="include-side-plank" class="abs butt hips" type="checkbox"
+                            onclick="includeExercise('side-plank')">
+                        <label for="include-side-plank">Include side-plank</label>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+                
+<!--PICTURE OF THE EXERCISES THAT SHOWS UP WHEN A CHECKBOX IS CHECKED -->
+<h2>Here is your workout</h2>
+            <div id="workout-grid-container" class="exercises">
+                <figure id="jumping-jacks">
+                    <img src="assets/illustrations/jumping-jack.png" alt="Person demonstrating jumping jacks"
+                        height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Jumping jacks</figcaption>
+                </figure>
+
+                <figure id="wall-sit">
+                    <img src="assets/illustrations/wall-sit.png" alt="Person demonstrating wall-sit" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Wall sit</figcaption>
+                </figure>
+
+                <figure id="push-ups">
+                    <img src="assets/illustrations/push-up.png" alt="Person demonstrating push-ups" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Push-ups</figcaption>
+                </figure>
+
+                <figure id="crunch">
+                    <img src="assets/illustrations/crunch.png" alt="Person demonstrating crunch" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Crunch</figcaption>
+                </figure>
+
+                <figure id="step-up">
+                    <img src="assets/illustrations/step-up.png" alt="Person demonstrating step-up" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Step-up</figcaption>
+                </figure>
+
+                <figure id="squat">
+                    <img src="assets/illustrations/squat.png" alt="Person demonstrating squat" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Squat</figcaption>
+                </figure>
+
+                <figure id="triceps-dip">
+                    <img src="assets/illustrations/triceps-dip.png" alt="Person demonstrating triceps-dip" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Triceps-dip</figcaption>
+                </figure>
+
+                <figure id="plank">
+                    <img src="assets/illustrations/plank.png" alt="Person demonstrating plank" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Plank</figcaption>
+                </figure>
+
+                <figure id="running">
+                    <img src="assets/illustrations/running.png" alt="Person demonstrating running" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Running</figcaption>
+                </figure>
+
+                <figure id="lunge">
+                    <img src="assets/illustrations/lunge.png" alt="Person demonstrating lunge" height="100">
+                    <figcaption><span class="duration">30 SEC.</span> Lunge</figcaption>
+                </figure>
+
+                <figure id="push-up-rotate">
+                    <img src="assets/illustrations/push-up-rotate.png" alt="Person demonstrating push up and rotate"
+                        height="100">
+                    <figcaption><span class="duration">15 SEC. on each side:</span>1 push up and rotate</figcaption>
+                </figure>
+
+                <figure id="side-plank">
+                    <img src="assets/illustrations/side-plank.png" alt="Person demonstrating side-plank" height="100">
+                    <figcaption><span class="duration">15 SEC. on each side:</span>Side-plank</figcaption>
+                </figure>
+            </div>
+
+
+            <!-- STARTING THE WORKOUT-->
+            <button onclick="startWorkout()" id="start-button">Start workout</button>
+        </div>
+
+        <!--THE INTERFACE FOR WHEN USERS HAVE STARTED THE WORKOUT, THIS IS ALL HIDDEN UNTIL CLICKED START WORKOUT-->
+        <div id="inWorkout">
+            <label id="progressId" for="progress">Workout progress:</label>
+            <progress id="progress" max="100" value="0"></progress>
+            <p id="step" aria-live="polite" role="status"></p>
+            <button class="designButtons" id="start-startButton">Start workout</button>
+            <button class="designButtons" id="pauseButton">Pause workout</button>
+            <button class="designButtons" id="continueButton">Continue workout</button>
+            <button class="designButtons" onclick="toggleInterface(); backToMenu()">Back to main menu</button>
+            <div id="slideshow" aria-live="polite"></div>
+            <div id="descriptions" aria-live="polite"></div>
+
+        </div>
+    </main>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/workout.js"></script>
+
+</body>
+
+</html>
